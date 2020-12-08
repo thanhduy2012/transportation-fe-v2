@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'transportation-fe';
+  collapedSideBar: boolean | undefined;
+
+  constructor() {}
+
+  ngOnInit() {}
+
+  receiveCollapsed($event: boolean | undefined) {
+      this.collapedSideBar = $event;
+  }
 }

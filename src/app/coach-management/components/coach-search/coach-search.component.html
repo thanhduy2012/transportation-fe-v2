@@ -1,0 +1,90 @@
+<div class="listview" >
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card" style="border: none;">
+                <div class="card-body">
+                    <form method="post">
+
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label for="license_plate">License plate :</label>
+                            </div>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control form-control-sm" id="license_plate"
+                                    name="license_plate">
+                            </div>
+                        </div>
+
+                        <div class="row mt-3">
+                            <div class="col-md-2">
+                                <label for="manufacturer">Manufacturer : </label>
+                            </div>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control form-control-sm" id="manufacturer"
+                                    name="manufacturer">
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-2">
+                                <label for="model">Model : </label>
+                            </div>
+                            <div class="col-md-2">
+                                <input type="text" class="form-control form-control-sm" name="model">
+                            </div>
+                        </div>
+
+                        <div class="row mt-3">
+                            <div class="col-md-2">
+                                <label for="seat_number">Seat number :</label>
+                            </div>
+                            <div class="col-md-8">
+                                <input type="number" class="form-control form-control-sm" name="seat_number">
+                            </div>
+                        </div>
+
+                        <div class="row mt-3">
+                            <div class="col-md-2">
+                                <label for="status">Status :</label>
+                            </div>
+                            <div class="col-md-8">
+                                <select class="form-control form-control-sm" id="status" name="status">
+                                    <option value="" selected hidden>---Choose---</option>
+
+                                </select>
+                            </div>
+
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-2">
+                                <label for="fromDate">Last Date Maintenance:</label>
+                            </div>
+                            <div class="col-md-8 form-inline">
+
+                                <input type="date" name="lastDateMaintenanceFrom" class="form-control form-control-sm"
+                                    id="lastDateMaintenanceFrom">
+
+                                <label for="toDate" class="mx-3">To</label>
+
+                                <input type="date" name="lastDateMaintenanceTo" class="form-control form-control-sm"
+                                    id="lastDateMaintenanceTo">
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-2">
+                                <button type="submit" class="btn btn-sm btn-primary"><i class="fas fa-search"></i> Search</button>
+
+                            </div>
+                            <div class="col-md-8 form-inline"></div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="col-md-12" style="color: white;">
+            <a class="btn btn-sm btn-primary float-right my-2">
+                <i class="fas fa-plus"></i> Thêm mới
+            </a>
+        </div> -->
+    </div>
+</div>
