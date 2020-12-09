@@ -1,8 +1,31 @@
+<div class=" listview main">
 
-<div class="page-inner" style="background-color: white;">
-    <h1 style="font-weight: bolder;">Coach management</h1>
+    <div class="row">
+        <div class="col-md-12" style="padding: 15px;">
+            <div>
 
-    <app-coach-search></app-coach-search>
+                <div class="module-page1">
+                    <div class="page-inner" style="background-color: white;">
+                        <h1 style="font-weight: bolder;">Coach management</h1>
 
-    <app-coach-list></app-coach-list>
+                        <app-coach-search
+                            (search)="searchCoach($event)"
+                            
+                        ></app-coach-search>
+
+
+
+                        <app-coach-list 
+                            [page]="pageOfListCoach$ | async" 
+                            [listCoach]="listCoach$ | async"
+                            (changePage)="goToPage($event)"
+                            (openDialog)="openDialog($event)"
+                            (confirmDelete)="deleteCoach($event)"
+                        >
+                        </app-coach-list>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

@@ -4,6 +4,7 @@
     -ms-transition: margin-left 0.2s ease-in-out;
     -o-transition: margin-left 0.2s ease-in-out;
     transition: margin-left 0.2s ease-in-out;
+    font-family: Roboto, sans-serif;
 }
 
 .main-container {
@@ -15,6 +16,7 @@
     overflow-y: scroll;
     position: relative;
     overflow: hidden;
+    background-color: rgba(75, 74, 74, 0.096);
 }
 
 .collapsed {
@@ -33,3 +35,4 @@
         margin-left: 0px !important;
     }
 }
+

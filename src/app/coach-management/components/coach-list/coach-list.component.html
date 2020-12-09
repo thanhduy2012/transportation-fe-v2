@@ -1,33 +1,49 @@
+<div class="col-md-12" style="color: white;">
+  <button type="button" class="btn btn-sm btn-primary float-right my-2"  (click)="openAddDialog()"><i class="fas fa-plus"></i> Thêm mới</button>
+</div>
 <table class="table table-bordered table-hover mt-5 ">
     <thead class="thead-light">
       <tr>
-        <th scope="col" sortable="code" >Number</th>
-        <th scope="col" sortable="name">License plate</th>
-        <th scope="col" sortable="orderIndex" >Manufacturer</th>
-        <th scope="col" sortable="orderIndex" >Model</th>
-        <th scope="col" sortable="effectFrom">Seat number</th>
-        <th scope="col" sortable="effectTo" >Last Date Maintenance</th>
+        <th scope="col" sortable="code" style="width: 5%;" >Number</th>
+        <th scope="col" sortable="name" style="width: 5%;" >License plate</th>
+        <th scope="col" sortable="orderIndex"style="width: 5%;"  >Manufacturer</th>
+        <th scope="col" sortable="orderIndex"style="width: 5%;"  >Model</th>
+        <th scope="col" sortable="effectFrom"style="width: 5%;" >Seat number</th>
+        <th scope="col" sortable="effectTo"style="width: 5%;"  >Last Date Maintenance</th>
+        <th scope="col" style="width: 5%;" >Action</th>
+        
       </tr>
     </thead>
 
-
+    <ng-container
+    *ngIf="page != null && page != undefined && listCoach != null && listCoach != undefined">
     <tbody>
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <tr *ngFor="let item of listCoach; let i = index;">
+        <td>{{i+1}}</td>
+        <td>{{item.licensePlate}}</td>
+        <td>{{item.manufacturer}}</td>
+        <td>{{item.model}}</td>
+        <td>{{item.seatNumber}}</td>
+        <td>{{item.lastDateMaintenance}}</td>
+        <td>
+          <div >
+            <button type="button" class="btn btn-sm btn-info" style="margin-right: 10px;"  (click)="openEditDialog(item)"> <i class="fas fa-edit"></i> Edit</button>
+            <button type="button" class="btn btn-sm btn-warning" style="color: white;" (click)="openConfirmDialog(item.id)">  <i class="fas fa-trash-alt"></i> Delete</button>
+            
+           
+          </div>
+          
+        </td>
       </tr>
     </tbody>
+    </ng-container>
   </table>
-  <div class="d-flex justify-content-end">
-    <!-- <ngb-pagination 
-        [collectionSize]="areasImportingData.length"  
+  <div class="d-flex justify-content-end" *ngIf="page != null && page != undefined">
+    <ngb-pagination 
+        [collectionSize]="page.totalElements"  
         [(page)]="currentPage"
-        [pageSize]="pageSize"
-        [maxSize] = 5
+        [pageSize]="page.pageSize"
+        [maxSize]=5
         (pageChange) = "goToPage($event)"
-    ></ngb-pagination> -->
+    ></ngb-pagination>
 </div>

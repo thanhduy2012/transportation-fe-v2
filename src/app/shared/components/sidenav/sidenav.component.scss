@@ -1,4 +1,4 @@
-$topnav-background-color: #222;
+$topnav-background-color: 	#4491BB;
 .sidebar {
     border-radius: 0;
     position: fixed;
@@ -27,8 +27,9 @@ $topnav-background-color: #222;
             background: $topnav-background-color;
             border: 0;
             border-radius: 0;
-            color: #999;
+            color: black;
             text-decoration: none;
+            font-size: 16px;
 
             .fa {
                 margin-right: 10px;
@@ -66,7 +67,7 @@ $topnav-background-color: #222;
             margin-bottom: 0;
 
             a {
-                color: #999;
+                color: black;
                 text-decoration: none;
                 font-weight: 400;
                 background: $topnav-background-color;
@@ -102,7 +103,7 @@ $topnav-background-color: #222;
                     border: 0 solid transparent;
 
                     a {
-                        color: #999;
+                        color: black;
                     }
 
                     a:hover {
@@ -188,8 +189,8 @@ $topnav-background-color: #222;
     cursor: pointer;
     padding: 12px;
     bottom: 0;
-    color: #999;
-    background: #212529;
+    color: black;
+    background: #4491BB;
 
     i {
         font-size: 23px;
@@ -197,10 +198,10 @@ $topnav-background-color: #222;
 
     &:hover {
         background: darken($topnav-background-color, 5%);
-        color: #fff;
+        color: black;
     }
 
-    border-top: 1px solid #999;
+    border-top: 1px solid rgb(32, 32, 32);
     -webkit-transition: all 0.2s ease-in-out;
     -moz-transition: all 0.2s ease-in-out;
     -ms-transition: all 0.2s ease-in-out;

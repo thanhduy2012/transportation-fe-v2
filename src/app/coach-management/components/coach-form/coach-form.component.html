@@ -1,0 +1,75 @@
+<div class="cat-form" >
+    <h1 mat-dialog-title class="text-center">{{title}}</h1>
+  <div mat-dialog-content style="padding-top: 5px;">
+  
+  
+      <form method="POST" [formGroup]="form" id="frm" name="frm" (ngSubmit)="save(form)">
+        <div class="form-group row">
+          <label  class="col-sm-2 col-form-label">License Plate : </label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control  form-control-sm"    formControlName="licensePlate"  >
+          </div>
+        </div>
+
+        <div class="form-group row">
+            <label  class="col-sm-2 col-form-label">Manufacturer : </label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control  form-control-sm"    formControlName="manufacturer"  >
+            </div>
+          </div>
+          <input type="hidden"    formControlName="id"  >
+
+          <div class="form-group row">
+            <label  class="col-sm-2 col-form-label">Model : </label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control  form-control-sm"    formControlName="model"  >
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label  class="col-sm-2 col-form-label">Color : </label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control  form-control-sm"    formControlName="color"  >
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label  class="col-sm-2 col-form-label">Seat Number : </label>
+            <div class="col-sm-10">
+              <input type="number" class="form-control  form-control-sm"    formControlName="seatNumber"  >
+            </div>
+          </div>
+
+
+          <div class="form-group row">
+            <label  class="col-sm-2 col-form-label">Status : </label>
+            <div class="col-sm-10">
+                <select class="form-control form-control-sm" id="status" formControlName="status"   name="status">
+                    <option value="" selected hidden>---Choose---</option>
+                    <option value="1" >Hiệu lực</option>
+                    <option value="0" >Không hiệu lực</option>
+                </select>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label  class="col-sm-2 col-form-label">Last Date Maintenance :</label>
+            <div class="col-sm-10">
+                <input type="date" name="lastDateMaintenance" formControlName="lastDateMaintenance" class="form-control form-control-sm">
+            </div>
+          </div>
+        
+  
+  
+  
+      </form>
+  
+  
+  </div>
+  <div mat-dialog-actions class="d-flex justify-content-center">
+    <button type="submit" class="btn btn-sm btn-primary" mat-button form="frm"> <i class="fas fa-save"></i> {{btn}}    </button>
+    <button mat-button class="btn btn-sm btn-warning" style="color: white;" mat-dialog-close ><i class="fas fa-arrow-left"></i>  Return</button>
+  </div>
+  </div>
+  
+  

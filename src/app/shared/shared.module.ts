@@ -30,24 +30,6 @@ import { MatAutocomplete, MatAutocompleteModule } from '@angular/material/autoco
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
-
-// Directives
-// import { NgbdSortableHeader, FocusFirstInvalidFieldDirective } from 'src/app/shared/directives';
-
-// Services
-// import * as fromSharedServices from './services';
-
-// Components
-// import * as fromComponents from './components';
-// import { NumberToIterablePipe } from './pipes/number-to-iterable.pipe';
-// Ngx document viewer
-// import { NgxDocViewerModule } from 'ngx-doc-viewer';
-// import { CreateUrlPipe } from './pipes/create-url-image.pipe';
-// import { ScrollSpyDirective } from './directives/scroll-spy.directive';
-// import { MatTreeModule } from '@angular/material';
-// import { CheckBoxDirective } from './directives/check-box.directive';
-
-
 @NgModule({
   declarations: [
   ],
