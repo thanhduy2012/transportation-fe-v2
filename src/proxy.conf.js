@@ -15,6 +15,12 @@ const PROXY_CONFIG = [
       '/api/driver/update',
 
 
+      '/api/trip/get-all',
+      '/api/trip/create',
+      '/api/trip/delete',
+      '/api/trip/update',
+
+
     ],
     target: "http://localhost:8080", 
     secure: false,

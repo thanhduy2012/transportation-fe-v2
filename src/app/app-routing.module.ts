@@ -17,6 +17,11 @@ const routes: Routes = [
     path:'driver',
     canActivate:[],
     loadChildren:()=>import('./driver-management/driver-management.module').then(m =>m.DriverManagementModule)
+  },
+  {
+    path:'trip',
+    canActivate:[],
+    loadChildren:()=>import('./trip-management/trip-management.module').then(m =>m.TripManagementModule)
   }
 ];
 

@@ -16,7 +16,14 @@ import { DriverManagementReducer } from './driver-management.reducer';
 
 
 @NgModule({
-  declarations: [DriverManagementComponent,DriverPageComponent, DriverListComponent, DriverFormPageComponent, DriverFormComponent, DriverSearchComponent, DriverConfirmDialogComponent],
+  declarations: [
+    DriverManagementComponent,
+    DriverPageComponent, 
+    DriverListComponent,
+    DriverFormPageComponent, 
+    DriverFormComponent, 
+    DriverSearchComponent, 
+    DriverConfirmDialogComponent],
   imports: [
     SharedModule,
     CommonModule,

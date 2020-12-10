@@ -23,7 +23,6 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     HttpClientModule,
     MDBBootstrapModule.forRoot(),
-
     StoreModule.forRoot({}),
     EffectsModule.forRoot(),
 
