@@ -20,6 +20,12 @@ const PROXY_CONFIG = [
       '/api/trip/delete',
       '/api/trip/update',
 
+      
+      '/api/route/get-all',
+      '/api/route/create',
+      '/api/route/delete',
+      '/api/route/update',
+
 
     ],
     target: "http://localhost:8080", 

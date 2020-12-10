@@ -22,6 +22,11 @@ const routes: Routes = [
     path:'trip',
     canActivate:[],
     loadChildren:()=>import('./trip-management/trip-management.module').then(m =>m.TripManagementModule)
+  },
+  {
+    path:'route',
+    canActivate:[],
+    loadChildren:()=>import('./route-management/route-management.module').then(m =>m.RouteManagementModule)
   }
 ];
 

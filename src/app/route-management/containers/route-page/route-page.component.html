@@ -1,0 +1,34 @@
+<div class=" listview main">
+
+    <div class="row">
+        <div class="col-md-12" style="padding: 15px;">
+            <div>
+
+                <div class="module-page1">
+                    <div class="page-inner" style="background-color: white;">
+                        <h1 style="font-weight: bolder;">Route management</h1>
+
+                        <app-route-search
+                            (search)="searchRoute($event)"
+                            
+                        ></app-route-search>
+
+
+
+                        <app-route-list 
+                            [page]="pageOfListRoute$ | async" 
+                            [listRoute]="listRoute$ | async"
+                            (changePage)="goToPage($event)"
+                            (openDialog)="openDialog($event)"
+                            (confirmDelete)="deleteRoute($event)"
+                        >
+                        </app-route-list>
+
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,48 @@
+<div class="col-md-12" style="color: white;">
+    <button type="button" class="btn btn-sm btn-primary float-right my-2"  (click)="openAddDialog()"><i class="fas fa-plus"></i> Thêm mới</button>
+  </div>
+  <table class="table table-bordered table-hover mt-5 ">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col" sortable="code" style="width: 5%;" >Number</th>
+          <th scope="col" sortable="name" style="width: 5%;" >First Location</th>
+          <th scope="col" sortable="orderIndex"style="width: 5%;"  >Last Location</th>
+          <th scope="col" sortable="orderIndex"style="width: 5%;"  >length</th>
+          <th scope="col" sortable="effectFrom"style="width: 5%;" >Complexity</th>
+          <th scope="col" style="width: 5%;" >Action</th>
+          
+        </tr>
+      </thead>
+  
+      <ng-container
+      *ngIf="page != null && page != undefined && listRoute != null && listRoute != undefined">
+      <tbody>
+          <tr *ngFor="let item of listRoute; let i = index;">
+          <td>{{i+1}}</td>
+          <td>{{item.firstLocation}}</td>
+          <td>{{item.lastLocation}}</td>
+          <td>{{item.length}}</td>
+          <td>{{item.complexityId}}</td>
+          <td>
+            <div >
+              <button type="button" class="btn btn-sm btn-info" style="margin-right: 10px;"  (click)="openEditDialog(item)"> <i class="fas fa-edit"></i> Edit</button>
+              <button type="button" class="btn btn-sm btn-warning" style="color: white;" (click)="openConfirmDialog(item.id)">  <i class="fas fa-trash-alt"></i> Delete</button>
+              
+             
+            </div>
+            
+          </td>
+        </tr>
+      </tbody>
+      </ng-container>
+    </table>
+    <div class="d-flex justify-content-end" *ngIf="page != null && page != undefined && listRoute != null && listRoute != undefined">
+      <ngb-pagination 
+          [collectionSize]="listRoute.length"  
+          [(page)]="currentPage"
+          [pageSize]="page.pageSize"
+          [maxSize]=5
+          (pageChange) = "goToPage($event)"
+      ></ngb-pagination>
+  </div>
+  

@@ -1,0 +1,62 @@
+<div class="listview" >
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card" style="border: none;">
+                <div class="card-body">
+                    <form  [formGroup]="form" (ngSubmit)="save(form)"  name="frmSearch" method="post">
+
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label for="license_plate">firstLocation :</label>
+                            </div>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control form-control-sm"  formControlName="firstLocation"  id="firstLocation"
+                                    name="firstLocation">
+                            </div>
+                        </div>
+
+                        <div class="row mt-3">
+                            <div class="col-md-2">
+                                <label for="manufacturer">lastLocation: </label>
+                            </div>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control form-control-sm"   formControlName="lastLocation"  id="lastLocation"
+                                    name="identityCard">
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-2">
+                                <label for="model">length : </label>
+                            </div>
+                            <div class="col-md-2">
+                                <input type="number" class="form-control form-control-sm" formControlName="length"   name="length">
+                            </div>
+                        </div>
+
+                        <div class="row mt-3">
+                            <div class="col-md-2">
+                                <label for="complexityId">Complexity :</label>
+                            </div>
+                            <div class="col-md-8">
+                                <select class="form-control form-control-sm" id="complexityId" formControlName="complexityId"   name="complexityId">
+                                    <option value="" selected hidden>---Choose---</option>
+                                    <option value="1" >Mức độ 1</option>
+                                    <option value="2" >Mức độ 2</option>
+                                </select>
+                            </div>
+
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-2">
+                                <button type="submit" class="btn btn-sm btn-primary"><i class="fas fa-search"></i> Search</button>
+
+                            </div>
+                            <div class="col-md-8 form-inline"></div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
