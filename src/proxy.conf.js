@@ -5,7 +5,14 @@ const PROXY_CONFIG = [
       '/api/coach/get-all',
       '/api/coach/create',
       '/api/coach/delete',
-      '/api/coach/update'
+      '/api/coach/update',
+
+
+
+      '/api/driver/get-all',
+      '/api/driver/create',
+      '/api/driver/delete',
+      '/api/driver/update',
 
 
     ],

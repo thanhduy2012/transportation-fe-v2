@@ -38,9 +38,9 @@
     </tbody>
     </ng-container>
   </table>
-  <div class="d-flex justify-content-end" *ngIf="page != null && page != undefined">
+  <div class="d-flex justify-content-end" *ngIf="page != null && page != undefined && listCoach != null && listCoach != undefined">
     <ngb-pagination 
-        [collectionSize]="page.totalElements"  
+        [collectionSize]="listCoach.length"  
         [(page)]="currentPage"
         [pageSize]="page.pageSize"
         [maxSize]=5

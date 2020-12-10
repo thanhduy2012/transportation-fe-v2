@@ -3,6 +3,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
+    path:'',
+    pathMatch: 'full',
+    redirectTo: 'coach'
+  },
+
+  {
     path:'coach',
     canActivate:[],
     loadChildren:()=>import('./coach-management/coach-management.module').then(m =>m.CoachManagementModule)
