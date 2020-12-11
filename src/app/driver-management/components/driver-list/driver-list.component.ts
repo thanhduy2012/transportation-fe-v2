@@ -39,6 +39,13 @@ export class DriverListComponent implements OnInit {
     this.changePage.emit(pageNumber);
   }
 
+  openViewSalaryDialog(item:any){
+    this.openDialog.emit({
+      type: 'view',
+      driver: item
+    })
+  }
+
   openAddDialog(){
     this.openDialog.emit({
       type: 'create'

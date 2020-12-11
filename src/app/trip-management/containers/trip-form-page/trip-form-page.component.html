@@ -2,4 +2,7 @@
     (addTrip)="addTrip($event)"   
     (updateTrip)="updateTrip($event)"
     [data]="data"
+    [listCoach]="listCoach$ | async"
+    [listDriver]="listDriver$ | async"
+    [listRoute]="listRoute$ | async"
 ></app-trip-form>

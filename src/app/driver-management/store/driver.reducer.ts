@@ -1,7 +1,7 @@
 import { state } from '@angular/animations';
 import { Action, createReducer, on } from '@ngrx/store';
 import { DriverManagementState } from '../driver-management.reducer';
-import { Driver } from '../models/model';
+import { Driver, SalaryDriverDTO } from '../models/model';
 
 
 import * as DriverAction from './driver.action';
@@ -12,6 +12,8 @@ export interface DriverState {
     listDriver: Driver[] | any;
     errorListDriver: any;
     pagableListDriver: any;
+
+    salaryDriver: SalaryDriverDTO | any;
 
 
 
@@ -31,7 +33,10 @@ export const initialState: DriverState = {
 
 
     isLoadingOfAddDriver: false,
-    errorAddDriver: null
+    errorAddDriver: null,
+
+
+    salaryDriver: null,
 
 }
 
@@ -143,6 +148,32 @@ export const reducers = createReducer(
     }),
     /************************* Update Driver ************************** */
 
+
+        
+    /************************* get salary driver ************************** */
+
+    on(DriverAction.getSalary, state => ({
+        ...state,
+    })),
+    on(DriverAction.getSalarySuccess, (state, { response }) => {
+        return ({
+            ...state,
+            salaryDriver:response.salaryDriverDTO
+        })
+    }),
+    /************************* get salary driver ************************** */
+
+    /************************* clear salary driver ************************** */
+
+
+    on(DriverAction.clearSalary, (state) => {
+        console.log("1111111111111111")
+        return ({
+            ...state,
+            salaryDriver:null
+        })
+    }),
+    /************************* clear salary driver ************************** */
 
 
 

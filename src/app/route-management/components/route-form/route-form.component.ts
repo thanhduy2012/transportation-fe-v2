@@ -38,6 +38,7 @@ export class RouteFormComponent implements OnInit {
 
     if(this.data.type =="update"){
       this.form.patchValue(this.data.route)
+      this.form.controls.complexityId.setValue(this.data.route.complexity.id);
       this.title = "Update Route";
       this.btn = "Save"
     }
@@ -58,7 +59,9 @@ export class RouteFormComponent implements OnInit {
         firstLocation :value.firstLocation,
         lastLocation:value.lastLocation,
         length:value.length,
-        complexityId:value.complexityId,
+        complexity:{
+          id: value.complexityId
+        },
 
       }
 

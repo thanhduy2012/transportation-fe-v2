@@ -4,24 +4,37 @@
   <table class="table table-bordered table-hover mt-5 ">
       <thead class="thead-light">
         <tr>
-          <th scope="col" sortable="code" style="width: 5%;" >Number</th>
-          <th scope="col" sortable="name" style="width: 5%;" >Code</th>
-          <th scope="col" sortable="orderIndex"style="width: 5%;"  >Number Guest</th>
+          <th scope="col" sortable="code" style="width: 1%;" >Number</th>
+          <th scope="col" sortable="name" style="width: 4%;" >Code</th>
+          <th scope="col" sortable="orderIndex"style="width: 6%;"  >Number Guest</th>
           <th scope="col" sortable="orderIndex"style="width: 5%;"  >Price</th>
+          <th scope="col" sortable="orderIndex"style="width: 5%;"  >Main Driver</th>
+          <th scope="col" sortable="orderIndex"style="width: 7%;"  >Salary Main Driver</th>
+          <th scope="col" sortable="orderIndex"style="width:6%;"  >Support Driver</th>
+          <th scope="col" sortable="orderIndex"style="width: 7%;"  >Salary Sup Driver</th>
+          <th scope="col" sortable="orderIndex"style="width: 5%;"  >Coach</th>
+          <th scope="col" sortable="orderIndex"style="width: 5%;"  >Route</th>
+          <th scope="col" sortable="orderIndex"style="width: 5%;"  >Date</th>
           <th scope="col" sortable="effectFrom"style="width: 5%;" >Status</th>
-          <th scope="col" style="width: 5%;" >Action</th>
-          
+          <th scope="col" style="width: 8%;" >Action</th>
         </tr>
       </thead>
   
       <ng-container
-      *ngIf="page != null && page != undefined && listTrip != null && listTrip != undefined">
+            *ngIf="page != null && page != undefined && listTrip != null && listTrip != undefined">
       <tbody>
           <tr *ngFor="let item of listTrip; let i = index;">
           <td>{{i+1}}</td>
           <td>{{item.code}}</td>
           <td>{{item.numberGuest}}</td>
           <td>{{item.price}}</td>
+          <td>{{item.mainDriver.name}}</td>
+          <td>{{item.salaryMainDriver | currency}}</td>
+          <td>{{item.supDriver.name }}</td>
+          <td>{{item.salarySupDriver | currency}}</td>
+          <td>{{item.coach.licensePlate}}</td>
+          <td>{{item.route.id}}</td>
+          <td>{{item.date}}</td>
           <td>{{item.status}}</td>
           <td>
             <div >

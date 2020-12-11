@@ -14,6 +14,12 @@ import { EffectsModule } from '@ngrx/effects';
 import { TripManagementReducer } from './trip-management.reducer';
 import { TripManagemnetEffect } from './trip-management.effect';
 import { TripManagementComponent } from './trip-management.component';
+import { DriverManagementReducer } from '../driver-management/driver-management.reducer';
+import { DriverManagemnetEffect } from '../driver-management/driver-management.effect';
+import { CoachManagementReducer } from '../coach-management/coach-management.reducer';
+import { CoachManagemnetEffect } from '../coach-management/coach-management.effect';
+import { RouteManagementReducer } from '../route-management/route-management.reducer';
+import { RouteManagemnetEffect } from '../route-management/route-management.effect';
 
 
 @NgModule({
@@ -32,7 +38,14 @@ import { TripManagementComponent } from './trip-management.component';
     CommonModule,
     TripManagementRoutingModule,
     StoreModule.forFeature('tripManagement', TripManagementReducer),
-    EffectsModule.forFeature(TripManagemnetEffect)
+    StoreModule.forFeature('driverManagement', DriverManagementReducer),
+    StoreModule.forFeature('coachManagement', CoachManagementReducer),
+    StoreModule.forFeature('routeManagement', RouteManagementReducer),
+    EffectsModule.forFeature(TripManagemnetEffect),
+    EffectsModule.forFeature(DriverManagemnetEffect),
+    EffectsModule.forFeature(RouteManagemnetEffect),
+    EffectsModule.forFeature(CoachManagemnetEffect)
+    
   ]
 })
 export class TripManagementModule { }

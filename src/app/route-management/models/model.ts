@@ -8,7 +8,7 @@ export interface Route{
 
     createdBy?: string;
 
-    complexityId?: number;
+    complexity?: Complexity;
 
     createdDate?: string;
 
@@ -53,4 +53,15 @@ export interface DeleteRouteRequest{
 
 export interface DeleteRouteResponse{
     route:Route
+}
+
+export interface Complexity{
+    id?: string;
+    code?: string;
+
+    description?: string;
+
+    coefficientSalary?: number;
+
+    status?:number;
 }

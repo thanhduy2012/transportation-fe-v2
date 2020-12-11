@@ -21,4 +21,9 @@ export const selectListDriver= createSelector(
     getDriverManagementState,
     (state)=> state.driver.errorListDriver
   );
+
+  export const selectSalaryDriver = createSelector(
+    getDriverManagementState,
+    (state)=> state.driver.salaryDriver
+  );
   /** ***************** Select list Driver ************************  */

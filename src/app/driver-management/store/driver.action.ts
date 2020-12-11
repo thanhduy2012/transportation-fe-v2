@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { AddDriverRequest, AddDriverResponse, DeleteDriverRequest, DeleteDriverResponse, GetListDriverPagingByDriverRequest, GetListDriverPagingByDriverResponse, UpdateDriverRequest, UpdateDriverResponse } from '../models/model';
+import { AddDriverRequest, AddDriverResponse, DeleteDriverRequest, DeleteDriverResponse, GetListDriverPagingByDriverRequest, GetListDriverPagingByDriverResponse, GetSalaryDriverRequest, GetSalaryDriverResponse, UpdateDriverRequest, UpdateDriverResponse } from '../models/model';
 
   /************************************* Get List Driver Paging *********************************/
   export const getListDriverPaging = createAction(
@@ -59,6 +59,57 @@ import { AddDriverRequest, AddDriverResponse, DeleteDriverRequest, DeleteDriverR
     props<{ error: UpdateDriverResponse}>()
   );
   /************************************* Update Driver *********************************/
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ /************************************* Get Salary Driver *********************************/
+ export const getSalary = createAction(
+  '[Driver/API] Get Salary Request',
+  props<{ request: GetSalaryDriverRequest }>()
+);
+
+export const clearSalary = createAction(
+  '[Driver/API]  Clear Salary  Success',
+  props<any>()
+);
+
+export const getSalarySuccess = createAction(
+  '[Driver/API]  Get Salary  Success',
+  props<{ response: GetSalaryDriverResponse }>()
+);
+
+export const getSalaryFailure= createAction(
+  '[Driver/API]  Get Salary  Error',
+  props<{ error: GetSalaryDriverResponse}>()
+);
+/************************************* Get Salary Driver *********************************/
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -28,6 +28,15 @@ export interface Driver{
     updatedDate?: string;
 }
 
+export interface StatisticalSalaryDriver{
+    id?: string;
+    name?: string;
+    numberOfMainDriver?: number;
+    numberOfSupportDriver?: number;
+    month?: number;
+    salary?: number;
+}
+
 export interface GetListDriverPagingByDriverRequest{
     driver?:Driver;
     pageNumber?: number;
@@ -64,4 +73,27 @@ export interface DeleteDriverRequest{
 
 export interface DeleteDriverResponse{
     driver:Driver
+}
+
+
+export interface GetSalaryDriverRequest{
+    driverId?: number,
+    month?: string
+}
+
+
+export interface GetSalaryDriverResponse{
+    salaryDriverDTO?:SalaryDriverDTO
+}
+
+export interface SalaryDriverDTO{
+    driver?: Driver;
+
+    salary?: number;
+
+    month?: number;
+
+    numberOfMainDriver?: number;
+
+    numberOfSupportDriver?: number;
 }

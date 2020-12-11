@@ -5,6 +5,7 @@ export interface Coach{
     manufacturer?: string;
     model?: string;
     seatNumber?: number;
+    numOfmaintain?: number;
     lastDateMaintenance?: string;
     fromLastDateMaintenance?: string;
     toLastDateMaintenance?: string;

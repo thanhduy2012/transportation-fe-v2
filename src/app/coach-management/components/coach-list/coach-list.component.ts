@@ -66,4 +66,12 @@ export class CoachListComponent implements OnInit,OnChanges{
     })
   }
 
+  viewDetail(item:any){
+    this.openDialog.emit({
+      type: 'view',
+      coach: item
+    })
+  }
+  
+
 }

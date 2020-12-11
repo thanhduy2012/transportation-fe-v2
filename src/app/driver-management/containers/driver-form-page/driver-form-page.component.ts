@@ -1,9 +1,11 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Store } from '@ngrx/store';
-import { AddDriverRequest, Driver, UpdateDriverRequest } from '../../models/model';
-import { addDriver, updateDriver } from '../../store/driver.action';
+import { select, Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { AddDriverRequest, Driver, GetSalaryDriverRequest, SalaryDriverDTO, UpdateDriverRequest } from '../../models/model';
+import { addDriver, clearSalary, getSalary, updateDriver } from '../../store/driver.action';
 import { DriverState } from '../../store/driver.reducer';
+import { selectSalaryDriver } from '../../store/driver.selector';
 
 @Component({
   selector: 'app-driver-form-page',
@@ -15,12 +17,15 @@ export class DriverFormPageComponent implements OnInit {
   data?: any;
   title?: string;
   btn?: string
+  salaryDriver$: Observable<SalaryDriverDTO> |any;
   constructor(
     private storeDriver: Store<DriverState>,
     @Inject(MAT_DIALOG_DATA) private dataS: any,
     private dialogRef: MatDialogRef<DriverFormPageComponent>
   ) { 
   this.data = dataS;
+
+  this.salaryDriver$ = this.storeDriver.pipe(select(selectSalaryDriver));
   }
 
   ngOnInit(): void {
@@ -43,6 +48,23 @@ export class DriverFormPageComponent implements OnInit {
     }
     this.storeDriver.dispatch(updateDriver({request}));
     this.dialogRef.close();
+  }
+
+
+  getSalary($event: any){
+    
+
+
+    if(typeof $event == 'string'){
+          const request: GetSalaryDriverRequest ={
+          driverId:  this.data.driver.id,
+          month:$event
+    
+      }
+
+      this.storeDriver.dispatch(getSalary({request}));
+    }
+
   }
 
 

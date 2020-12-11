@@ -12,7 +12,7 @@
           <th scope="col" sortable="effectTo"style="width: 5%;"  >Address</th>
           <th scope="col" sortable="effectTo"style="width: 5%;"  >Date Of Birth</th>
           <th scope="col" sortable="effectTo"style="width: 5%;"  >Seniority</th>
-          <th scope="col" style="width: 5%;" >Action</th>
+          <th scope="col" style="width: 10%;" >Action</th>
           
         </tr>
       </thead>
@@ -31,6 +31,7 @@
           <td>{{item.seniority}}</td>
           <td>
             <div >
+              <button type="button" class="btn btn-sm btn-info" style="margin-right: 10px;"  (click)="openViewSalaryDialog(item)"> <i class="fas fa-edit"></i> View Salary</button>
               <button type="button" class="btn btn-sm btn-info" style="margin-right: 10px;"  (click)="openEditDialog(item)"> <i class="fas fa-edit"></i> Edit</button>
               <button type="button" class="btn btn-sm btn-warning" style="color: white;" (click)="openConfirmDialog(item.id)">  <i class="fas fa-trash-alt"></i> Delete</button>
               

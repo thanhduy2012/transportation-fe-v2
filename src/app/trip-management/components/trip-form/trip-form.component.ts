@@ -1,5 +1,9 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Coach } from 'src/app/coach-management/models/models';
+import { Driver } from 'src/app/driver-management/models/model';
+import { Route } from 'src/app/route-management/models/model';
 import { Trip } from '../../models/model';
 
 @Component({
@@ -7,11 +11,19 @@ import { Trip } from '../../models/model';
   templateUrl: './trip-form.component.html',
   styleUrls: ['./trip-form.component.scss']
 })
-export class TripFormComponent implements OnInit {
+export class TripFormComponent implements OnInit ,OnChanges{
 
   @Output() addTrip = new EventEmitter<Trip>();
   @Output() updateTrip = new EventEmitter<Trip>();
   @Input() data?: any;
+  @Input() listCoach?: Coach[] | any;
+  @Input() listDriver?: Driver[] | any;
+  @Input() listRoute?: Route[] | any;
+
+  listSupDriver?: Driver[] | any;
+  listMainDriver?: Driver[] | any;
+
+  maxGuest?: number;
 
   form: FormGroup;
   title ?: string;
@@ -25,18 +37,28 @@ export class TripFormComponent implements OnInit {
         code: [""],
         numberGuest: [],
         price: [],
-        status: []
+        status: [""],
+        supDriver:[""],
+        mainDriver:[""],
+        coach:[""],
+        route:[""],
+        salary:[""],
+        date:[""]
       }
 
     );
 
+  }
+  ngOnChanges(changes: SimpleChanges): void {
+    this.listSupDriver = this.listDriver;
+    this.listMainDriver = this.listDriver;
   }
 
   ngOnInit(): void {
 
 
     if(this.data.type =="update"){
-      this.form.patchValue(this.data.Trip)
+      this.form.patchValue(this.data.Trip);
       this.title = "Update Trip";
       this.btn = "Save"
     }
@@ -57,7 +79,22 @@ export class TripFormComponent implements OnInit {
         code: value.code,
         numberGuest: value.numberGuest,
         price: value.price,
-        status: value.status
+        status: value.status,
+        salary:value.salary,
+        date: value.date,
+        supDriver:{
+          id: value.supDriver
+        },
+        mainDriver:{
+          id: value.mainDriver
+        },
+        coach:{
+          id: value.coach
+        },
+        route:{
+          id: value.route
+        },
+
       }
 
       
@@ -73,5 +110,18 @@ export class TripFormComponent implements OnInit {
 
   }
 
+  changeMainDriver($event : any){
+      console.log("event : ", $event.target.value)
+      this.listSupDriver = this.listDriver.filter((i:any) => i.id != $event.target.value);
+  }
+
+  changeSupDriver($event  : any){
+    this.listMainDriver = this.listDriver.filter((i:any) => i.id != $event.target.value);
+  }
+
+  chooseCoach($event:any){
+    console.log(" === ", this.listCoach.filter((item:any) => item.id == $event.target.value)[0])
+    this.maxGuest = this.listCoach.filter((item:any) => item.id == $event.target.value)[0].seatNumber-2;
+  }
 
 }

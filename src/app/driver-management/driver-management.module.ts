@@ -13,6 +13,7 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { DriverManagemnetEffect } from './driver-management.effect';
 import { DriverManagementReducer } from './driver-management.reducer';
+import { DriverFormSalaryMonthComponent } from './components/driver-form-salary-month/driver-form-salary-month.component';
 
 
 @NgModule({
@@ -23,11 +24,12 @@ import { DriverManagementReducer } from './driver-management.reducer';
     DriverFormPageComponent, 
     DriverFormComponent, 
     DriverSearchComponent, 
-    DriverConfirmDialogComponent],
+    DriverConfirmDialogComponent, DriverFormSalaryMonthComponent],
   imports: [
     SharedModule,
     CommonModule,
     DriverManagementRoutingModule,
+    
     StoreModule.forFeature('driverManagement', DriverManagementReducer),
     EffectsModule.forFeature(DriverManagemnetEffect)
   ]

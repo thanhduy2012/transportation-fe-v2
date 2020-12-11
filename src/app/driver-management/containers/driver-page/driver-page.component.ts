@@ -3,7 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { DeleteDriverRequest, Driver, GetListDriverPagingByDriverRequest } from '../../models/model';
-import { deleteDriver, getListDriverPaging } from '../../store/driver.action';
+import { clearSalary, deleteDriver, getListDriverPaging } from '../../store/driver.action';
 import { DriverState } from '../../store/driver.reducer';
 import { selectListDriver, selectPageOfListDriver } from '../../store/driver.selector';
 import { DriverFormPageComponent } from '../driver-form-page/driver-form-page.component';
@@ -64,6 +64,8 @@ export class DriverPageComponent implements OnInit {
   }
 
   openDialog($event:any){
+    console.log("clear")
+    this.storeDriver.dispatch(clearSalary({}));
     const open = this.dialog.open(DriverFormPageComponent, {
       width: '65%',
       data: $event

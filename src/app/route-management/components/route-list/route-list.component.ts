@@ -11,7 +11,7 @@ import { RouteConfirmDialogComponent } from '../route-confirm-dialog/route-confi
 export class RouteListComponent implements OnInit {
 
   @Input() page:any;
-  @Input() listRoute:Route[] | undefined | null;
+  @Input() listRoute ?:any;
   @Output() changePage = new EventEmitter<Number>();
   @Output() openDialog= new EventEmitter<any>();
   @Output() confirmDelete = new EventEmitter<Number>();

@@ -10,7 +10,7 @@ import { TripConfirmDialogComponent } from '../trip-confirm-dialog/trip-confirm-
 })
 export class TripListComponent implements OnInit {
   @Input() page:any;
-  @Input() listTrip:Trip[] | undefined | null;
+  @Input() listTrip:Trip[] |any;
   @Output() changePage = new EventEmitter<Number>();
   @Output() openDialog= new EventEmitter<any>();
   @Output() confirmDelete = new EventEmitter<Number>();

@@ -14,10 +14,11 @@ import {CoachManagementReducer} from "./coach-management.reducer";
 import { CoachFormComponent } from './components/coach-form/coach-form.component';
 import { CoachFormPageComponent } from './containers/coach-form-page/coach-form-page.component';
 import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
+import { CoachFormSalaryMonthComponent } from './components/coach-form-salary-month/coach-form-salary-month.component';
 
 
 @NgModule({
-  declarations: [CoachListComponent, CoachPageComponent, CoachManagementComponent, CoachSearchComponent, CoachFormComponent, CoachFormPageComponent, ConfirmDialogComponent],
+  declarations: [CoachListComponent, CoachPageComponent, CoachManagementComponent, CoachSearchComponent, CoachFormComponent, CoachFormPageComponent, ConfirmDialogComponent, CoachFormSalaryMonthComponent],
   imports: [
     SharedModule,
     CommonModule,

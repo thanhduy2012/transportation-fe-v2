@@ -1,3 +1,7 @@
+import { Coach } from 'src/app/coach-management/models/models';
+import { Driver } from 'src/app/driver-management/models/model';
+import { Route } from 'src/app/route-management/models/model';
+
 export interface Trip{
     id?: string;
 
@@ -6,6 +10,22 @@ export interface Trip{
     numberGuest?: number;
 
     price?: number;
+
+    date?: string;
+
+    salary?: number;
+
+    salaryMainDriver?: number;
+
+    salarySupDriver?: number;
+
+    coach?: Coach;
+
+    mainDriver?: Driver;
+
+    supDriver?: Driver;
+
+    route?:Route;
 
     status?: number;
 

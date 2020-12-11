@@ -1,5 +1,16 @@
 <app-driver-form
+*ngIf="this.data.type != 'view'"
     (addDriver)="addDriver($event)"   
     (updateDriver)="updateDriver($event)"
     [data]="data"
 ></app-driver-form>
+
+<app-driver-form-salary-month
+*ngIf="this.data.type == 'view'"
+[salaryDriver]= "salaryDriver$ | async"
+(change)="getSalary($event)"
+>
+
+</app-driver-form-salary-month>
+
+

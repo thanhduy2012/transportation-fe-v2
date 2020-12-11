@@ -37,7 +37,9 @@ export class RouteSearchComponent implements OnInit {
         firstLocation :value.firstLocation,
         lastLocation:value.lastLocation,
         length:value.length,
-        complexityId:value.complexityId,
+        complexity:{
+          id: value.complexityId
+        },
 
       }
       this.search.emit(RouteSearch);

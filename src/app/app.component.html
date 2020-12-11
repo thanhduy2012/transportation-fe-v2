@@ -1,6 +1,7 @@
-
-<app-navbar></app-navbar>
-<app-sidenav (collapsedEvent)="receiveCollapsed($event)"></app-sidenav>
-<section [ngClass]="{ collapsed: collapedSideBar }" class="main-container">
-    <router-outlet></router-outlet>
-</section>
+<div>
+    <app-navbar></app-navbar>
+    <app-sidenav (collapsedEvent)="receiveCollapsed($event)"></app-sidenav>
+    <section [ngClass]="{ collapsed: collapedSideBar }" class="main-container">
+        <router-outlet></router-outlet>
+    </section>
+</div>

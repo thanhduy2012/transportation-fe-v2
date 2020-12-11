@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
-import { AddDriverRequest, AddDriverResponse, DeleteDriverRequest, DeleteDriverResponse, GetListDriverPagingByDriverRequest, GetListDriverPagingByDriverResponse, UpdateDriverRequest, UpdateDriverResponse } from '../models/model';
+import { AddDriverRequest, AddDriverResponse, DeleteDriverRequest, DeleteDriverResponse, GetListDriverPagingByDriverRequest, GetListDriverPagingByDriverResponse, GetSalaryDriverRequest, GetSalaryDriverResponse, UpdateDriverRequest, UpdateDriverResponse } from '../models/model';
 
 @Injectable({
   providedIn: 'root'
@@ -61,6 +61,20 @@ updateDriver(request: UpdateDriverRequest):Observable<UpdateDriverResponse>{
 deleteDriver(request: DeleteDriverRequest):Observable<DeleteDriverResponse>{
   return this.http
   .post<DeleteDriverResponse>("/api/driver/delete", request)
+  .pipe(catchError((httpError: any) => {
+    return throwError(httpError);
+  }))
+}
+
+
+  /**
+ * 
+ * @param 
+ * @author Thành Duy
+ */
+getSalary(request: GetSalaryDriverRequest):Observable<GetSalaryDriverResponse>{
+  return this.http
+  .post<GetSalaryDriverResponse>("/api/driver/salary", request)
   .pipe(catchError((httpError: any) => {
     return throwError(httpError);
   }))

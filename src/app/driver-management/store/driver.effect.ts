@@ -97,4 +97,24 @@ export class DriverEffects {
 
 
 
+          /**
+   *
+   * effect getSalary  
+   * @author DuyLT16
+   *  */
+  getSalary$ = createEffect(() =>
+    this.action$.pipe(
+      ofType(DriverAction.getSalary),
+      mergeMap(
+        action => this.service.getSalary(action.request).pipe(
+          map(response => {
+              return DriverAction.getSalarySuccess({ response: response });
+          }),
+          catchError(err => of(DriverAction.getSalaryFailure({ error: err })))
+        )
+      )
+    )
+  );
+
+
 }

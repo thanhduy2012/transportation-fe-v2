@@ -13,6 +13,7 @@ const PROXY_CONFIG = [
       '/api/driver/create',
       '/api/driver/delete',
       '/api/driver/update',
+      '/api/driver/salary',
 
 
       '/api/trip/get-all',

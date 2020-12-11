@@ -29,7 +29,6 @@ export class CoachFormPageComponent implements OnInit {
   }
 
   addCoach($event:Coach){
-    console.log("add coach")
     const request: AddCoachRequest ={
       coach: $event
     }

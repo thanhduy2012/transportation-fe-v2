@@ -1,5 +1,12 @@
 <app-coach-form
+    *ngIf="data.type != 'view'"
     (addCoach)="addCoach($event)"   
     (updateCoach)="updateCoach($event)"
     [data]="data"
 ></app-coach-form>
+
+<app-coach-form-salary-month
+    *ngIf="data.type == 'view'"
+>
+
+</app-coach-form-salary-month>
