@@ -1,46 +1,47 @@
 <div class="cat-form" >
     <h1 mat-dialog-title class="text-center">View Detail Coach</h1>
   <div mat-dialog-content style="padding-top: 5px;">
-  
+    <form method="POST" [formGroup]="form" id="frm" name="frm" (ngSubmit)="save(form)">
     <div class="row">
             <div class="col-md-1">
                 <label for="fromDate">Date: </label>
             </div>
             <div class="col-md-8 form-inline">
 
-                <input type="date" name="lastDateMaintenanceFrom" formControlName="lastDateMaintenanceFrom" class="form-control form-control-sm"
+                <input type="date" name="lastDateMaintenanceFrom" formControlName="fromDate" class="form-control form-control-sm"
                     id="lastDateMaintenanceFrom">
 
                 <label for="toDate" class="mx-3">To</label>
 
-                <input type="date" name="lastDateMaintenanceTo" formControlName="lastDateMaintenanceTo" class="form-control form-control-sm"
+                <input type="date" name="lastDateMaintenanceTo" formControlName="toDate" class="form-control form-control-sm"
                     id="lastDateMaintenanceTo">
             </div>
+            <div class="col-md-2">
+                <button class="btn btn-sm btn-primary"> Search</button>
+            </div>
     </div>
+    </form>
          
           <table class="table table-bordered table-hover mt-5 ">
             <thead class="thead-light">
               <tr>
-                <th scope="col"  style="width: 7%;" >License driver</th>
-                <th scope="col"  style="width: 5%;" >Name </th>
-                <th scope="col" style="width: 10%;" >Number of main driver</th>
-                <th scope="col"  style="width: 10%;" >Number of support driver </th>
-                <th scope="col"  style="width: 10%;" >Month </th>
+                <th scope="col"  style="width: 7%;" >License Plate</th>
+                <th scope="col" style="width: 10%;" >Number Trip</th>
                 <th scope="col"  style="width: 10%;" >Salary </th>
+                <th scope="col"  style="width: 10%;" >Distance (km)</th>
                 
                 
               </tr>
             </thead>
         
 
-            <tbody>
+            <tbody *ngIf="salaryCoach != null && salaryCoach != undefined">
                 <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>{{salaryCoach.coach.licensePlate}}</td>
+                <td>{{salaryCoach.numberTrip}}</td>
+                <td>{{salaryCoach.salary| currency}}</td>
+                <td>{{salaryCoach.distance }}</td>
+
               </tr>
             </tbody>
           </table>

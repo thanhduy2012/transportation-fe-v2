@@ -52,3 +52,20 @@ export interface DeleteCoachRequest{
 export interface DeleteCoachResponse{
     coach:Coach
 }
+
+export interface SalaryCoachDTO{
+    coach?: Coach;
+    numberTrip?: number;
+    salary?: number;
+    distance?: number;
+}
+
+export interface GetSalaryWithDateRequest{
+    coachId?: number,
+    fromDate?: string,
+    toDate?: string
+}
+
+export interface GetSalaryWithDateResponse{
+    salaryCoachDTO?: SalaryCoachDTO;
+}

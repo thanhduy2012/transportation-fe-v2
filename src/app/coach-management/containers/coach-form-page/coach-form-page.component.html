@@ -7,6 +7,8 @@
 
 <app-coach-form-salary-month
     *ngIf="data.type == 'view'"
+    (searchForm)="searchSalary($event)"
+    [salaryCoach]="salaryCoach$ | async"
 >
 
 </app-coach-form-salary-month>

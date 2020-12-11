@@ -49,6 +49,8 @@
       </tbody>
       </ng-container>
     </table>
+    <div class="d-flex justify-content-start" *ngIf="listTrip != undefined && listTrip != null">Have {{listTrip.length}} / {{page.totalElements}} record</div>
+
     <div class="d-flex justify-content-end" *ngIf="page != null && page != undefined && listTrip != null && listTrip != undefined">
       <ngb-pagination 
           [collectionSize]="listTrip.length"  

@@ -56,6 +56,27 @@ export class CoachEffects {
   );
 
 
+
+      /**
+   *
+   * get salary of coach  
+   * @author DuyLT16
+   *  */
+  getSalary$ = createEffect(() =>
+    this.action$.pipe(
+      ofType(CoachAction.getSalary),
+      mergeMap(
+        action => this.service.getSalary(action.request).pipe(
+          map(response => {
+              return CoachAction.getSalarySuccess({ response: response });
+          }),
+          catchError(err => of(CoachAction.getSalaryFailure({ error: err })))
+        )
+      )
+    )
+  );
+
+
 /**
    *
    * effect add coach  

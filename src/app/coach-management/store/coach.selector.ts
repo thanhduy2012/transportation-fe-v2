@@ -16,6 +16,13 @@ export const selectListCoach= createSelector(
     getCoachManagementState,
     (state)=> state.coach.isLoadingOflistCoach
   );
+
+
+  export const selectSalaryOfCoach = createSelector(
+    getCoachManagementState,
+    (state)=> state.coach.salaryOfCoach
+  );
+  
   
   export const selectErrorOfGetListCoach = createSelector(
     getCoachManagementState,

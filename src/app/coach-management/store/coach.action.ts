@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { AddCoachRequest, AddCoachResponse, DeleteCoachRequest, DeleteCoachResponse, GetListCoachPagingByCoachRequest, GetListCoachPagingByCoachResponse, UpdateCoachRequest, UpdateCoachResponse } from '../models/models';
+import { AddCoachRequest, AddCoachResponse, DeleteCoachRequest, DeleteCoachResponse, GetListCoachPagingByCoachRequest, GetListCoachPagingByCoachResponse, GetSalaryWithDateRequest, GetSalaryWithDateResponse, UpdateCoachRequest, UpdateCoachResponse } from '../models/models';
 
   /************************************* Get List Coach Paging *********************************/
   export const getListCoachPaging = createAction(
@@ -36,6 +36,29 @@ import { AddCoachRequest, AddCoachResponse, DeleteCoachRequest, DeleteCoachRespo
     props<{ error: AddCoachResponse}>()
   );
   /*************************************Add Coach *********************************/
+
+
+    /************************************* Get Salary *********************************/
+    export const getSalary = createAction(
+      '[Coach/API] Get Salary Of Coach Request',
+      props<{ request: GetSalaryWithDateRequest }>()
+    );
+    
+    export const getSalarySuccess = createAction(
+      '[Coach/API]  Get Salary Of Coach Success',
+      props<{ response: GetSalaryWithDateResponse }>()
+    );
+
+    export const clearSalaryCoach = createAction(
+      '[Coach/API]  Clear Salary Coach',
+      props<any>()
+    );
+    
+    export const getSalaryFailure= createAction(
+      '[Coach/API]  Get Salary Of Coach Error',
+      props<{ error: GetSalaryWithDateResponse}>()
+    );
+    /*************************************Add Coach *********************************/
 
 
 

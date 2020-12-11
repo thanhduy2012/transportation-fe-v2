@@ -167,7 +167,6 @@ export const reducers = createReducer(
 
 
     on(DriverAction.clearSalary, (state) => {
-        console.log("1111111111111111")
         return ({
             ...state,
             salaryDriver:null

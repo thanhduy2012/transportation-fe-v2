@@ -1,10 +1,12 @@
 import { ThrowStmt } from '@angular/compiler';
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Store } from '@ngrx/store';
-import { AddCoachRequest, Coach, UpdateCoachRequest } from '../../models/models';
-import { addCoach, updateCoach } from '../../store/coach.action';
+import { select, Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { AddCoachRequest, Coach, GetSalaryWithDateRequest, SalaryCoachDTO, UpdateCoachRequest } from '../../models/models';
+import { addCoach, getSalary, updateCoach } from '../../store/coach.action';
 import { CoachState } from '../../store/coach.reducer';
+import { selectSalaryOfCoach } from '../../store/coach.selector';
 
 @Component({
   selector: 'app-coach-form-page',
@@ -16,12 +18,14 @@ export class CoachFormPageComponent implements OnInit {
   data?: any;
   title?: string;
   btn?: string
+  salaryCoach$:Observable<SalaryCoachDTO>| any;
   constructor(
     private storeCoach: Store<CoachState>,
     @Inject(MAT_DIALOG_DATA) private dataS: any,
     private dialogRef: MatDialogRef<CoachFormPageComponent>
   ) { 
   this.data = dataS;
+  this.salaryCoach$=this.storeCoach.pipe(select(selectSalaryOfCoach));
   }
 
   ngOnInit(): void {
@@ -43,6 +47,18 @@ export class CoachFormPageComponent implements OnInit {
     }
     this.storeCoach.dispatch(updateCoach({request}));
     this.dialogRef.close();
+  }
+
+  searchSalary($event:any){
+    console.log("event : ", $event);
+    console.log("coach: ", this.data);
+
+    const request: GetSalaryWithDateRequest ={
+      fromDate:$event.fromDate,
+      toDate:$event.toDate,
+      coachId:this.data.coach.id
+    }
+    this.storeCoach.dispatch(getSalary({request}));
   }
 
 }

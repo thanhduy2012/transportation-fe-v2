@@ -1,7 +1,7 @@
 import { state } from '@angular/animations';
 import { Action, createReducer, on } from '@ngrx/store';
 import { CoachManagementState } from '../coach-management.reducer';
-import { Coach } from '../models/models';
+import { Coach, SalaryCoachDTO } from '../models/models';
 
 
 import * as CoachAction from './coach.action';
@@ -14,6 +14,7 @@ export interface CoachState {
     pagableListCoach: any;
 
 
+    salaryOfCoach: SalaryCoachDTO | any;
 
     isLoadingOfAddCoach: boolean;
     errorAddCoach: any;
@@ -28,6 +29,10 @@ export const initialState: CoachState = {
     listCoach: [],
     errorListCoach: null,
     pagableListCoach: null,
+
+
+
+    salaryOfCoach: null,
 
 
     isLoadingOfAddCoach: false,
@@ -77,7 +82,7 @@ export const reducers = createReducer(
             pagableListCoach: response.page
         })
     }),
- 
+
     on(CoachAction.getListCoachPagingFailure, (state, { error }) => {
         return (({
             ...state,
@@ -126,7 +131,7 @@ export const reducers = createReducer(
 
 
 
-    
+
     /************************* Update coach ************************** */
 
     on(CoachAction.updateCoach, state => ({
@@ -135,8 +140,8 @@ export const reducers = createReducer(
     on(CoachAction.updateCoachSuccess, (state, { response }) => {
         return ({
             ...state,
-            listCoach: [...state.listCoach.map((i: any,index: any,self: any) => {
-                if(i.id == response.coach.id) return response.coach;
+            listCoach: [...state.listCoach.map((i: any, index: any, self: any) => {
+                if (i.id == response.coach.id) return response.coach;
                 return i;
             })]
         })
@@ -146,6 +151,41 @@ export const reducers = createReducer(
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+    /************************* Get Salary Coach ************************** */
+
+    on(CoachAction.getSalary, state => ({
+        ...state,
+    })),
+    on(CoachAction.getSalarySuccess, (state, { response }) => {
+        return ({
+            ...state,
+            salaryOfCoach: response.salaryCoachDTO
+        })
+    }),
+    /************************* Get Salary Coach ************************** */
+
+
+
+    /************************* Clear Salary Coach ************************** */
+
+    on(CoachAction.clearSalaryCoach, (state) => {
+        return ({
+            ...state,
+            salaryOfCoach: null
+        })
+    }),
+    /************************* Clear Salary Coach ************************** */
 
 
 
@@ -173,11 +213,11 @@ export const reducers = createReducer(
         return ({
             ...state,
             isLoadingOfAddCoach: false,
-            listCoach: [response.coach,...state.listCoach],
+            listCoach: [response.coach, ...state.listCoach],
             errorListCoach: null
         })
     }),
-    
+
     on(CoachAction.addCoachFailure, (state, { error }) => {
         return (({
             ...state,
@@ -185,7 +225,7 @@ export const reducers = createReducer(
             errorListCoach: error
         }))
     })
-        /************************* Add Coach ************************** */
+    /************************* Add Coach ************************** */
 
 
 
@@ -194,4 +234,4 @@ export const reducers = createReducer(
 
 export function CoachReducer(state: CoachState | undefined, action: Action) {
     return reducers(state, action);
-  }
+}

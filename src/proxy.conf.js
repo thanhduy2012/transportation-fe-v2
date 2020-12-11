@@ -6,6 +6,7 @@ const PROXY_CONFIG = [
       '/api/coach/create',
       '/api/coach/delete',
       '/api/coach/update',
+      '/api/coach/salary',
 
 
 

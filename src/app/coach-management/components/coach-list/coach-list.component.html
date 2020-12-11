@@ -1,26 +1,26 @@
 <div class="col-md-12" style="color: white;">
-  <button type="button" class="btn btn-sm btn-primary float-right my-2"  (click)="openAddDialog()"><i class="fas fa-plus"></i> Thêm mới</button>
+  <button type="button" class="btn btn-sm btn-primary float-right my-2" (click)="openAddDialog()"><i
+      class="fas fa-plus"></i> Thêm mới</button>
 </div>
 <table class="table table-bordered table-hover mt-5 ">
-    <thead class="thead-light">
-      <tr>
-        <th scope="col" sortable="code" style="width: 1%;" >Number</th>
-        <th scope="col" sortable="name" style="width: 5%;" >License plate</th>
-        <th scope="col" sortable="orderIndex"style="width: 1%;"  >Manufacturer</th>
-        <th scope="col" sortable="orderIndex"style="width: 2%;"  >Model</th>
-        <th scope="col" sortable="effectFrom"style="width: 5%;" >Seat number</th>
-        <th scope="col" sortable="effectFrom"style="width: 6%;" > Expiry date maintain</th>
-        <th scope="col" sortable="effectTo"style="width: 4%;"  >Last Date Maintenance</th>
-        <th scope="col" sortable="effectTo"style="width: 1%;"  >status</th>
-        <th scope="col" style="width: 9%;" >Action</th>
-        
-      </tr>
-    </thead>
+  <thead class="thead-light">
+    <tr>
+      <th scope="col" sortable="code" style="width: 1%;">Number</th>
+      <th scope="col" sortable="name" style="width: 5%;">License plate</th>
+      <th scope="col" sortable="orderIndex" style="width: 1%;">Manufacturer</th>
+      <th scope="col" sortable="orderIndex" style="width: 2%;">Model</th>
+      <th scope="col" sortable="effectFrom" style="width: 5%;">Seat number</th>
+      <th scope="col" sortable="effectFrom" style="width: 6%;"> Expiry date maintain</th>
+      <th scope="col" sortable="effectTo" style="width: 4%;">Last Date Maintenance</th>
+      <th scope="col" sortable="effectTo" style="width: 1%;">status</th>
+      <th scope="col" style="width: 9%;">Action</th>
 
-    <ng-container
-    *ngIf="page != null && page != undefined && listCoach != null && listCoach != undefined">
+    </tr>
+  </thead>
+
+  <ng-container *ngIf="page != null && page != undefined && listCoach != null && listCoach != undefined">
     <tbody>
-        <tr *ngFor="let item of listCoach; let i = index;">
+      <tr *ngFor="let item of listCoach; let i = index;">
         <td>{{i+1}}</td>
         <td>{{item.licensePlate}}</td>
         <td>{{item.manufacturer}}</td>
@@ -29,29 +29,34 @@
         <td *ngIf="item.numOfmaintain != undefined && item.numOfmaintain < 0">0</td>
         <td *ngIf="item.numOfmaintain != undefined && item.numOfmaintain >= 0">{{item.numOfmaintain}}</td>
         <td>{{item.lastDateMaintenance}}</td>
-        <td *ngIf="item.numOfmaintain != undefined && item.numOfmaintain < 50"><span class="badge badge-danger" style="color: white;">Need maintenance</span></td>
-        <td *ngIf="item.numOfmaintain != undefined && item.numOfmaintain >= 50 && item.numOfmaintain <= 150 "><span class="badge badge-warning" style="color: white;">Prepare for maintenance</span></td>
-        <td *ngIf="item.numOfmaintain != undefined && item.numOfmaintain >150"><span class="badge badge-primary" style="color: white;">Perfect</span></td>
+        <td *ngIf="item.numOfmaintain != undefined && item.numOfmaintain < 50"><span class="badge badge-danger"
+            style="color: white;">Need maintenance</span></td>
+        <td *ngIf="item.numOfmaintain != undefined && item.numOfmaintain >= 50 && item.numOfmaintain <= 150 "><span
+            class="badge badge-warning" style="color: white;">Prepare for maintenance</span></td>
+        <td *ngIf="item.numOfmaintain != undefined && item.numOfmaintain >150"><span class="badge badge-primary"
+            style="color: white;">Perfect</span></td>
         <td>
-          <div >
-            <button type="button" class="btn btn-sm btn-info" style="margin-right: 10px;"  (click)="viewDetail(item)"> <i class="fas fa-edit"></i> View Detail</button>
-            <button type="button" class="btn btn-sm btn-info" style="margin-right: 10px;"  (click)="openEditDialog(item)"> <i class="fas fa-edit"></i> Edit</button>
-            <button type="button" class="btn btn-sm btn-warning" style="color: white;" (click)="openConfirmDialog(item.id)">  <i class="fas fa-trash-alt"></i> Delete</button>
-            
-           
+          <div>
+            <button type="button" class="btn btn-sm btn-info" style="margin-right: 10px;" (click)="viewDetail(item)"> <i
+                class="fas fa-edit"></i> View Detail</button>
+            <button type="button" class="btn btn-sm btn-info" style="margin-right: 10px;"
+              (click)="openEditDialog(item)"> <i class="fas fa-edit"></i> Edit</button>
+            <button type="button" class="btn btn-sm btn-warning" style="color: white;"
+              (click)="openConfirmDialog(item.id)"> <i class="fas fa-trash-alt"></i> Delete</button>
+
+
           </div>
-          
+
         </td>
       </tr>
     </tbody>
-    </ng-container>
-  </table>
-  <div class="d-flex justify-content-end" *ngIf="page != null && page != undefined && listCoach != null && listCoach != undefined">
-    <ngb-pagination 
-        [collectionSize]="listCoach.length"  
-        [(page)]="currentPage"
-        [pageSize]="page.pageSize"
-        [maxSize]=5
-        (pageChange) = "goToPage($event)"
-    ></ngb-pagination>
-</div>
+  </ng-container>
+</table>
+<!-- <div class=""> -->
+  <div class="d-flex justify-content-start" *ngIf="listCoach != undefined && listCoach != null">Have {{listCoach.length}} / {{page.totalElements}} record</div>
+  <div class=" d-flex justify-content-end"
+    *ngIf="page != null && page != undefined && listCoach != null && listCoach != undefined">
+    <ngb-pagination [collectionSize]="listCoach.length" [(page)]="currentPage" [pageSize]="page.pageSize" [maxSize]=5
+      (pageChange)="goToPage($event)"></ngb-pagination>
+  </div>
+<!-- </div> -->
