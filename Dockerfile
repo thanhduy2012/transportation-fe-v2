@@ -18,6 +18,5 @@ WORKDIR /usr/share/nginx/html
 COPY --from=build-step /opt/source/dist .
 COPY --from=build-step /opt/source/default.conf /etc/nginx/conf.d
 
-RUN ls
 
 ENTRYPOINT [ "nginx", "-g", "daemon off;" ]

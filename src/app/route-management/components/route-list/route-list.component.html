@@ -36,7 +36,7 @@
       </tbody>
       </ng-container>
     </table>
-    <div class="d-flex justify-content-start" *ngIf="listRoute != undefined && listRoute != null">Have {{listRoute.length}} / {{page.totalElements}} record</div>
+    <div class="d-flex justify-content-start" *ngIf="listRoute != undefined && listRoute != null   && page != undefined && page != null">Have {{listRoute.length}} / {{page.totalElements}} record</div>
 
     <div class="d-flex justify-content-end" *ngIf="page != null && page != undefined && listRoute != null && listRoute != undefined">
       <ngb-pagination 
