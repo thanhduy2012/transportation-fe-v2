@@ -3,7 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Coach, DeleteCoachRequest, GetListCoachPagingByCoachRequest } from '../../models/models';
-import { deleteCoach, getListCoachPaging } from '../../store/coach.action';
+import { clearSalaryCoach, deleteCoach, getListCoachPaging } from '../../store/coach.action';
 import { CoachState } from '../../store/coach.reducer';
 import { selectListCoach, selectPageOfListCoach } from '../../store/coach.selector';
 import { CoachFormPageComponent } from '../coach-form-page/coach-form-page.component';
@@ -64,6 +64,7 @@ export class CoachPageComponent implements OnInit {
   }
 
   openDialog($event:any){
+    this.storeCoach.dispatch(clearSalaryCoach({}));
     const open = this.dialog.open(CoachFormPageComponent, {
       width: '65%',
       data: $event
