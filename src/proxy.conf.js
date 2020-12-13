@@ -30,7 +30,7 @@ const PROXY_CONFIG = [
 
 
     ],
-    target: "http://localhost:8080", 
+    target: "http://35.247.133.74:8082", 
     secure: false,
     logLevel: "debug",
     changeOrigin: true
